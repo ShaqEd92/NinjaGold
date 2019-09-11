@@ -1,0 +1,47 @@
+#content{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.location{
+    border: 2px solid black;
+    background: white;
+    border-radius: 15px;
+    height: 250px;
+    width: 20%;
+    padding: 15px;
+    text-align: center;
+}
+
+img{
+    height: 35%;
+}
+
+button{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 12px;
+    background: gold;
+}
+
+h2{
+    text-indent: 2%;
+}
+
+h4{
+    text-indent: 4%;
+}
+
+#activities{
+    border: 1px solid black;
+    width: 90%;
+    height: 100px;
+    overflow: scroll;
+    padding: 15px;
+    background: white;
+}
+
+.send{
+    padding: 5px;
+    background: white;
+}

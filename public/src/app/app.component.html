@@ -1,0 +1,81 @@
+<div style="text-align:center">
+  <h1>Ninja Gold</h1>
+</div>
+
+<div *ngIf="gamePage">
+  <hr>
+  <br>
+    <h2>{{ninja.Name}}'s Gold: {{gold}}</h2>
+    <div style="text-align: right; width: 90%; margin-top: -3%">
+      <button class="send" (click)="saveGold(ninja._id, gold)">Save</button> &nbsp;
+      <button class="send" (click)="restart(ninja._id)">Restart</button>
+    </div>
+  <br>
+
+  <div id="content">
+    <div class="location">
+      <h2>FARM</h2>
+      <img src="https://cognigen-cellular.com/images/farming-clipart-12.png" alt="farm">
+      <br><br>
+      <button (click)="onFarmButton()">Find Gold!</button>
+      <br>
+      <p>(earns 10-20 gold)</p>
+    </div>
+    <div class="location">
+      <h2>CAVE</h2>
+      <img src="https://cognigen-cellular.com/images/cave-clipart-snow-cave-3.png" alt="cave">
+      <br><br>
+      <button (click)="onCaveButton()">Find Gold!</button>
+      <br>
+      <p>(earns 5-10 gold)</p>
+    </div>
+    <div class="location">
+      <h2>HOUSE</h2>
+      <img src="http://clipart-library.com/images/8izng7jbT.png" alt="house">
+      <br><br>
+      <button (click)="onHouseButton()">Find Gold!</button>
+      <br>
+      <p>(earns 2-5 gold)</p>
+    </div>
+    <div class="location">
+      <h2>CASINO</h2>
+      <img
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eda2954-7a9e-458b-ad31-42b91d985163/d9q2fxs-766f563a-c0f7-446d-aff2-488674371a6b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVlZGEyOTU0LTdhOWUtNDU4Yi1hZDMxLTQyYjkxZDk4NTE2M1wvZDlxMmZ4cy03NjZmNTYzYS1jMGY3LTQ0NmQtYWZmMi00ODg2NzQzNzFhNmIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.8Jvr5Yczjovc6Sz8axOFB4pFthj9x5nqDZECG9Dc6TI"
+        alt="casino">
+      <br><br>
+      <button (click)="onCasinoButton()">Find Gold!</button>
+      <br>
+      <p>(earns/takes 0-50 gold)</p>
+    </div>
+  </div>
+  <br>
+  <h4>Activities:</h4>
+  <div style="display: flex; justify-content: center">
+    <div id="activities">
+      <p *ngFor="let m of message.reverse()">{{m}}</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="user" style="text-align: center">
+  <p>Enter your username: &nbsp; &nbsp;</p>
+  <input (keyup)="newUser($event)" type="text" name="Name"> &nbsp; &nbsp;
+  <button (click)="saveUsername()" class="send">Save</button>
+  <div style="width: 100%">
+    <p>Or click here to select your username: <button (click)="show()" class="send">Click</button> </p>
+  </div>
+  <button (click)="leaderboard()" class="send">Show Leaderboard!</button>
+</div>
+
+<div *ngIf="selectNinja">
+  <h3>Select your username to begin:</h3>
+  <p *ngFor="let ninja of ninjas">{{ninja.Name}} &nbsp; &nbsp; <button id="show" (click)="oneNinja(ninja._id)">Select</button> </p>
+</div>
+
+<div *ngIf="showLeaderboard" style="text-align:center">
+  <hr>
+  <h2 style="text-decoration: underline">Leaderboard</h2>
+  <p *ngFor="let ninja of ninjas.sort()"><span style="font-weight: bold">{{ninja.Name}}:</span> {{ninja.Gold}} GOLD</p>
+</div>
+
+<router-outlet></router-outlet>
