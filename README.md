@@ -1,6 +1,6 @@
 ## Ninja Gold
 
-Single-page application created with Angular during Coding Dojo bootcamp. See `public` folder for launch instructions for Angular app.
+Single-page application built with MEAN stack during Coding Dojo bootcamp. See `public` folder for launch instructions for Angular app.
 
 #### Technologies 
 
